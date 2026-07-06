@@ -1,360 +1,589 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="vi">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Thế Bảo - CV</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
-        type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Cô Gái Xinh Đẹp! 💖</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&amp;family=Playfair+Display:wght@400;700&amp;display=swap');
+        
+        :root {
+            --primary: #ff69b4;
+        }
+        
+        * {
+            transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Playfair Display', serif;
+            overflow-x: hidden;
+        }
+        
+        .title-font {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .balloon {
+            position: absolute;
+            font-size: 3rem;
+            animation: floatUp 15s linear infinite;
+            z-index: 10;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+
+        .flower {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: fall 8s linear infinite;
+            z-index: 5;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(720deg); }
+        }
+
+        .gift-box {
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(#ff1493, #ff69b4);
+            position: relative;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            cursor: pointer;
+            animation: shake 0.5s infinite alternate;
+        }
+
+        .gift-box::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: #fff;
+            transform: translateY(-50%);
+        }
+
+        .gift-box::after {
+            content: '🎀';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+        }
+
+        @keyframes shake {
+            from { transform: rotate(-8deg); }
+            to { transform: rotate(8deg); }
+        }
+
+        .lid {
+            position: absolute;
+            top: -40px;
+            left: 10px;
+            right: 10px;
+            height: 60px;
+            background: #ff1493;
+            border-radius: 12px 12px 0 0;
+            z-index: 2;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            animation: confetti-fall 4s linear forwards;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-800px) rotate(0deg); }
+            100% { transform: translateY(800px) rotate(720deg); }
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #ff69b4;
+            white-space: nowrap;
+            animation: typing 4s steps(40, end) forwards,
+                       blink-caret .75s step-end infinite;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transform: rotate(-3deg);
+        }
+
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .modal {
+            animation: modalPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes modalPop {
+            0% { transform: scale(0.6); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+    </style>
 </head>
+<body class="bg-pink-50 text-pink-900">
 
-<body id="page-top">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">
-            <span class="d-block d-lg-none">Thế Bảo</span>
-            <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2"
-                    src="https://static.topcv.vn/avatars/q6NlVpW59x3qkwkCWZEF_65b260c9c8413_cvtpl.jpg" alt="" /></span>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Giới Thiệu</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Kinh Nghiệm</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Học Vấn</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Kỹ Năng</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Dự Án Đã Làm</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Giải Thưởng</a></li>
-            </ul>
-        </div>
-    </nav>
-    <!-- Page Content-->
-    <div class="container-fluid p-0">
-        <!-- About-->
-        <section class="resume-section mb-0" id="about">
-            <div class="resume-section-content">
-                <h1 class="mb-0">
-                    Nguyễn Hữu Thế 
-                    <span class="text-primary">Bảo</span>
-                </h1>
-                <div class="subheading mb-5">
-                    <b>BACK-END DEV</b> -
-                    0383123387 -
-                    <a href="mailto:name@email.com">nguyentheb705@gmail.com</a>
-                </div>
-               
-                <div class="social-icons">
-                    <a class="social-icon" target="_blank" href="https://github.com/TheBao2004"><i
-                            class="fab fa-github"></i></a>
-                  
-                    <a class="social-icon" target="_blank" href="https://www.facebook.com/bao.tsm"><i
-                            class="fab fa-facebook-f"></i></a>
+    <!-- LANDING SCREEN -->
+    <section id="landing" class="hero flex items-center justify-center relative">
+        <canvas id="fireworks" class="absolute inset-0"></canvas>
+        
+        <!-- Balloons -->
+        <div id="balloons" class="absolute inset-0"></div>
+        
+        <!-- Flowers -->
+        <div id="flowers" class="absolute inset-0"></div>
+
+        <div class="text-center z-20 px-6 max-w-2xl">
+            <div class="mb-8 flex justify-center">
+                <div class="inline-flex items-center gap-3 bg-white/90 backdrop-blur-md px-8 py-4 rounded-3xl shadow-xl">
+                    <span class="text-5xl">💖</span>
+                    <h1 class="title-font text-6xl md:text-7xl font-bold text-pink-600 tracking-widest">Sinh Nhật Vui Vẻ</h1>
+                    <span class="text-5xl">🎉</span>
                 </div>
             </div>
-        </section>
-        <hr class="m-0" />
-        <!-- Experience-->
-        <section class="resume-section mb-0" id="experience">
-            <div class="resume-section-content">
-                <h2 class="mb-5">Kinh nghiệm</h2>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-0">Dự án tự học</h3>
-                        <div class="subheading mb-3">học hỏi từ dự án của những người có kinh nghiệm</div>
-                        <ul>
-                            <li>Đã học và hoàn thành 3 khóa học của <a href="https://www.youtube.com/@hoanganunicode" target="_blank">HOÀNG AN UNICODE</a>:
-                            PHP cơ bản, PHP nâng cao, Laravel.  
-                            </li>
-                            <li>
-                                Đã từng có thời gian trải nghiệm tại <a href="https://vicogroup.vn/" target="_blank">công ty cổ phần đa nền tảng vico</a> và được học tập về framework .NET khoảng 4 tháng.
-                            </li>
-                            <li>
-                                Tham gia và hoàn thành 2 xưởng thực hành dự án tối nghiệp của trường tổ chức.
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary"></span></div>
-                </div>
-            </div>
-        </section>
-        <hr class="m-0" />
-        <!-- Education-->
-        <section class="resume-section" id="education">
-            <div class="resume-section-content">
-                <h2 class="mb-5">Học Vấn</h2>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-0">Cao Đẳng FPT</h3>
-                        <p class="subheading mb-3">Lập trình web</p>
-                        <ul>
-                            <li>Chuyên nghành hẹp: <b>Back-end</b></li>
-                            <li>Tiến độ: Kỳ 7/7 (Đang làm đồ án tốt nghiệp)</li>
-                            <li>GPA: 9.5/10</li>
-                            <li>Có khả năng học bằng các tài liệu bằng tiếng anh</li>
-                        </ul>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary"></span></div>
-                </div>
-            </div>
-        </section>
-        <hr class="m-0" />
-        <!-- Skills-->
-        <section class="resume-section" id="skills">
-            <div class="resume-section-content">
-                <h2 class="mb-5">Kỹ năng </h2>
-                <div class="subheading mb-3">Kỹ năng chuyên nghành:</div>
-                <div class="row">
-                    <div class="col-6">
-                        <b>Back-end:</b>
-                        <ul>
-                            <li>PHP (MVC)</li>
-                            <li>Laravel framework</li>
-                            <li>Mysql, SQL server</li>
-                        </ul>
-                    </div>
-
-                    <div class="col-6">
-                        <b>Front-end:</b>
-                        <ul>
-                            <li>HTML5 & CSS3</li>
-                            <li>SCSS</li>
-                            <li>Javascript (ES6,...)</li>
-                            <li>Boostrap, Jquery, ReactJs framework</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="subheading mb-3">Kỹ năng khác:</div>
-                <ul>
-                    <li>.NET</li>
-                    <li>Git</li>
-                    <li>Typescript</li>
-                </ul>
-            </div>
-        </section>
-        <hr class="m-0" />
-        <!-- Interests-->
-        <section class="resume-section" id="interests">
-            <div class="resume-section-content">
-                <h2 class="mb-5">Dự án đã làm</h2>
-                <h4>Website học tập online - dự án nhóm</h4>
-                <p class="mb-1">Nền tảng học online, mua sách, làm bài thi, đọc tin tức. </p>
-                <p class="mb-1">Số lượng thành viên: 3</p>
-                <p class="mb-1">Vai trò: nhóm trưởng</p>
-                <p class="mb-1">Tình trạng: Hoàn thành.</p>
-
-                <p>
-                    Nhiệm vụ chính: viết sql, viết nghiệm vụ, thiết kế layout người dùng, tham gia cả backend và fontend.
-                </p>
-                <h5>Link website: <a target="_blank" href="https://smartfl.baoanh.click/">https://smartfl.baoanh.click</a>
-                </h5>
-                <h5>Link git: <a target="_blank"
-                        href="https://github.com/TheBao2004/smartfl">https://github.com/TheBao2004/smartfl</a>
-                </h5>
-                <p>Account: superadmin@gmail.com</p>
-                <p>Password: 123456</p>
-                <div class="row">
-                    <div class="col-6">
-                        <p class="mb-1"><b>Công nghệ & ngôn ngữ:</b></p>
-                        <ul>
-                            <li>Php, javascript, MySQL,...</li>
-                            <li>HTML5 & CSS3 , bootstrap</li>
-                            <li>Visual studio code, github</li>
-                        </ul>
-                    </div>
-
-                    <div class="col-6">
-                        <p class="mb-1"><b>Mô tả nhanh chức năng chính:</b></p>
-                        <ul>
-                            <li>CRUD users, danh mục, khóa học, sách, tin tức, bài kiểm tra...</li>
-                            <li>Hỗ trợ thanh toán online online (thanh toán online tự động)</li>
-                            <li>Học khóa, Mua sách, Làm bài, Đọc tin tức...</li>
-                            <li>Phân quyền, phân trang, tìm kiếm, chặn quyền cho mỗi module.</li>
-                        </ul>
-                    </div>
-                </div>
-                <p>Mô tả chức năng chính:</p>
-                <h5>Người dùng:</h5>
-                <ul>
-                    <li>Validate toàn bộ form mà người dùng sử dùng.</li>
-                    <li>Đăng nhập, đăng ký, quên mật khẩu, có thông báo bằng email.</li>
-                    <li>Xem các danh sách khóa học, sách, bài viết, bài kiểm tra.</li>
-                    <li>Bình luận có trả lời nhau cho mỗi khóa học và sách</li>
-                    <li>Có thể lọc các danh sách để tìm kiếm dễ hơn.</li>
-                    <li>Tích hợp nhiều kiểu phương thức thanh toán.</li>
-                    <li>Khóa học: người dùng bắt buộc phải mua để học khóa học, mã kích hoạt khóa học sẽ được gửi đến mail sau khi mua.</li>
-                    <li>Sách: Người dùng mua sách như bình thường, nếu không vượt quá số lượng sách.</li>
-                    <li>Bài kiểm tra: Người dùng mua bài vào thời điểm đã định sẵn, và vào làm bài vào thời điểm đã định sẵn, thời gian làm bài đã định sẵn.</li>
-                    <li>Bài viết: vào đọc.</li>
-                    <li>Quản lí tài khoản: sửa đổi thông tin trừ quyền, có danh sách đã mua của khóa học, sách, bài kiểm tra.</li>
-                </ul>
-                <h5>Quản trị:</h5>
-                <p>CURD: Danh mục, Bài viết, Sách, Bài kiểm tra, Khóa học, Chương học, bài học.</p>
-                <p>Quản lí và xem: các đơn hàng về sách.</p>
-                <p>Chia các nhóm người: Super admin, admin, staff, client ..., có thể thêm sửa quyền hạn theo từng nhóm người.</p>
-                <p>Phần quyền của các tài khoản trang website.</p>
-                <p>Sửa đổi các giao diện như footer, thành phần của header, sửa các trang tĩnh như giới thiệu và liên hệ và một số thành phần khác trong website.</p>
-
-                <hr>
-
-
-
-
-
-
-
-
-
-                <h4>Website học truyện đọc sách - dự án cá nhân</h4>
-                <p class="mb-1">Nền tảng học truyện tranh</p>
-                <p class="mb-1">Số lượng thành viên: 1</p>
-                <p class="mb-1">Vai trò: làm full website.</p>
-                <p class="mb-1">Tình trạng: Chưa hoàn thành.</p>
-                <p class="mb-1">Còn các phần như:</p>
-                <ul>
-                    <li>Đăng nhập, đăng ký ...</li>
-                    <li>Quản lí tài khoản</li>
-                </ul>
-                <p>
-                    Nhiệm vụ chính: viết sql, viết nghiệm vụ, viết api, tham gia cả backend và fontend. (phần giao diện có sửa dụng giao diện có sẵn)
-                </p>
-                <p class="text-danger">Vì quá trình up dự án này lên host có vấn đề nên web bên phía người dùng bị lỗi nên mong anh chị xem tạm bằng video demo em để bên dưới.</p>
-                <h5>Link loom demo website: <a target="_blank" href="https://www.loom.com/share/a960a31b23ca4fc2b956391f731ed256?sid=87edf147-e870-4a34-ac90-4ccb8cbb86e6">https://www.loom.com/share/a960a31b23ca4fc2b956391f731ed256?sid=87edf147-e870-4a34-ac90-4ccb8cbb86e6</a>
-                <h5>Link website: <a target="_blank" href="https://truyensuu.baoanh.click/">https://truyensuu.baoanh.click/ (không dùng được)</a>
-                <h5>Link admin: <a target="_blank" href="https://admin.truyensuu.baoanh.click/">https://admin.truyensuu.baoanh.click/ (đã dùng được)</a>
-                </h5>
-                <h5>Link git backend: <a target="_blank"
-                        href="https://github.com/TheBao2004/backend-suutruyen">https://github.com/TheBao2004/backend-suutruyen</a>
-                <h5>Link git fontend: <a target="_blank"
-                    href="https://github.com/TheBao2004/fontend-suutruyen">https://github.com/TheBao2004/fontend-suutruyen</a>
-                </h5>
-                <p>Account: admin@gmail.com</p>
-                <p>Password: 123456</p>
-                <div class="row">
-                    <div class="col-6">
-                        <p class="mb-1"><b>Công nghệ & ngôn ngữ:</b></p>
-                        <ul>
-                            <li>Php, Laravel, javascript, MySQL,...</li>
-                            <li>HTML5 & CSS3 , bootstrap, ReactJS</li>
-                            <li>Visual studio code, github</li>
-                        </ul>
-                    </div>
-
-                    <div class="col-6">
-                        <p class="mb-1"><b>Mô tả chức năng chính:</b></p>
-                        <ul>
-                            <li>Riêng trang admin thì sửa dự laravel thuần.</li>
-                            <li>CRUD truyện, chương, danh mục, từ khóa, ...</li>
-                            <li>Quản lí ảnh bằng công cụ quản lí ảnh tự code kiểu giống ckfinder.</li>
-                            <li>Sửa các trang tĩnh như giới thiệu và liên hệ và một số thành phần khác trong website.</li>
-                            <li>Riêng trang client sửa dựng reactjs và call api.</li>
-                            <li>Người dùng có thể đăng nhập, đăng ký bởi sử dụng JWT.</li>
-                            <li>Quản lí tài khoản và sửa đổi tài khoản.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <hr>
-
-
-
-
-
-
-
-
-                <h4>Website xem nội thất - dự án cá nhân</h4>
-                <p class="mb-1">Nền tảng giới thiệu nội thất</p>
-                <p class="mb-1">Số lượng thành viên: 1</p>
-                <p class="mb-1">Vai trò: làm full website.</p>
-                <p class="mb-1">Tình trạng: Chưa hoàn thành.</p>
-                <p class="mb-1">Còn các phần như:</p>
-                <ul>
-                    <li>Đăng nhập, đăng ký ...</li>
-                    <li>Quản lí tài khoản</li>
-                </ul>
-                <p>
-                    Nhiệm vụ chính: viết sql, viết nghiệm vụ, viết api, tham gia cả backend và fontend. (phần giao diện có sửa dụng giao diện có sẵn)
-                </p>
-                <h5>Link website: <a target="_blank" href="https://baoanh.click/">https://baoanh.click/</a>
-                </h5>
-                <h5>Link admin: <a target="_blank" href="https://baoanh.click/quan-tri">https://baoanh.click/quan-tri</a>
-                </h5>
             
-                <div class="row">
-                    <div class="col-6">
-                        <p class="mb-1"><b>Công nghệ & ngôn ngữ:</b></p>
-                        <ul>
-                            <li>Php, Laravel, javascript, MySQL,...</li>
-                            <li>HTML5 & CSS3 , bootstrap</li>
-                            <li>Visual studio code, github</li>
-                        </ul>
-                    </div>
+            <p class="text-2xl md:text-3xl mb-12 text-pink-700 font-light">Chúc mừng sinh nhật Hải Hà nha</p>   
+            
+            <!-- Gift Button -->
+            <div onclick="openGift()" class="mx-auto cursor-pointer group">
+                <div class="gift-box mx-auto flex items-center justify-center text-white text-6xl mb-6" id="giftContainer">
+                    <div class="lid" id="lid"></div>
+                    🎁
+                </div>
+                <div class="bg-white text-pink-600 font-bold text-2xl py-6 px-12 rounded-3xl shadow-2xl group-active:scale-95 inline-block">
+                    🎁 Mở món quà đặc biệt của Mầy nhé
+                    <p><small>Nhớ bấm cái Nút <i class="fa-solid fa-music"></i> để nghe nhạc</small></p>
+                </div>
+            </div>
+            
+            <div class="mt-16 flex justify-center gap-8 text-2xl">
+                <button onclick="toggleMusic()" id="musicBtn"
+                        class="bg-white/80 hover:bg-white w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg">
+                    <i class="fa-solid fa-music"></i>
+                </button>
+            </div>
+        </div>
 
-                    <div class="col-6">
-                        <p class="mb-1"><b>Mô tả chức năng chính:</b></p>
-                        <ul>
-                            <li>CURD Danh mục, Từ khóa, Màu sắc, Kích thước, Màu sắc, Sản phẩm, Biến thể ...</li>
-                            <li>Quản lí nội dung của các trang giới thiệu, liên hệ, bài viết</li>
-                            <li>Quản lí các thành phần của website như header, footer, slide, menu, ...</li>
-                            <li>Quản lí các thông tin của website như Tên, Số điện thoại, Email, ...</li>
-                        </ul>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-pink-600 text-sm flex flex-col items-center">
+            <div class="animate-bounce">Bấm để nghe nhạc</div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <div id="mainContent" class="hidden">
+        
+        <!-- HAPPY BIRTHDAY HEADER -->
+        <div class="bg-gradient-to-r from-pink-500 to-rose-400 py-16 text-white text-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-20" id="confettiContainer"></div>
+            <h1 class="title-font text-7xl md:text-8xl font-bold mb-4">Happy Birthday!</h1>
+            <p class="text-3xl title-font text-pink-100">Chúc mừng tuổi mới của Mầy 💖</p>
+        </div>
+
+        <!-- MESSAGE CARD -->
+        <section class="py-20 bg-white">
+            <div class="max-w-2xl mx-auto px-6">
+                <div class="bg-gradient-to-br from-pink-50 to-rose-50 border-8 border-pink-200 p-12 rounded-3xl shadow-2xl">
+                    <div class="text-center mb-10">
+                        <span class="inline-block text-6xl mb-6">💌</span>
+                        <h2 class="title-font text-5xl text-pink-600">Lời chúc từ anh</h2>
+                    </div>
+                    
+                    <div id="messageText" class="text-xl md:text-2xl leading-relaxed text-pink-800 min-h-[220px] font-light">
+                    </div>
+                    
+                    <div class="text-right mt-12">
+                        <p class="text-pink-500 text-lg">Người Bạn Online ❤️</p>
+                        <p class="text-pink-400">— Anh Bảo —</p>
                     </div>
                 </div>
-
-                <hr>
-
-
-
-
-                <h4>Ngoài các dự án chính trên còn có một số dự án nhỏ khác:</h4>
-                <ul>
-                    <li>Web bán hàng bằng php thuần trang môn dự án mẫu của trường.</li>
-                    <li>Web đọc truyên bằng laravel thuần trang dự án cá nhân.</li>
-                    <li>Web xem nội thấy laravel thuần dự án cá nhân.</li>
-                    <li>...</li>
-                </ul>
-              
             </div>
         </section>
-        <hr class="m-0" />
-        <!-- Awards-->
-        <section class="resume-section" id="awards">
-            <div class="resume-section-content">
-                <h2 class="mb-5">Giải thưởng & chứng chỉ</h2>
-                <ul class="fa-ul mb-0">
-               
-                    <li>
-                        <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                        Top 200 sinh viên xuất sắc - kỳ 2
-                    </li>
-                  
-                    <li>
-                        <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                        Top 3 sinh viên xuất sắc - kỳ 3
-                    </li>
-                </ul>
+
+        <!-- COUNTDOWN -->
+        <section class="py-20 bg-pink-50">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h2 class="text-4xl title-font mb-10 text-pink-600">Hôm nay là ngày đặc biệt của em ✨</h2>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-lg mx-auto">
+                    <div class="bg-white rounded-3xl p-8 shadow-lg">
+                        <div id="years" class="text-6xl font-bold text-pink-500">20</div>
+                        <div class="text-pink-400">Tuổi</div>
+                    </div>
+                    <div class="bg-white rounded-3xl p-8 shadow-lg">
+                        <!-- <div id="days" class="text-6xl font-bold text-pink-500">07</div> -->
+                         <div class="text-6xl font-bold text-pink-500">07</div>
+                        <div class="text-pink-400">Ngày</div>
+                    </div>
+                    <div class="bg-white rounded-3xl p-8 shadow-lg">
+                        <div id="hours" class="text-6xl font-bold text-pink-500">07</div>
+                        <div class="text-pink-400">Tháng</div>
+                    </div>
+                    <div class="bg-white rounded-3xl p-8 shadow-lg">
+                        <div id="minutes" class="text-6xl font-bold text-pink-500">2026</div>
+                        <div class="text-pink-400">Năm</div>
+                    </div>
+                </div>
+                
+                <p class="mt-12 text-pink-500 text-lg">Còn rất nhiều niềm vui đang chờ em phía trước!</p>
             </div>
         </section>
+
+        <!-- PHOTO ALBUM -->
+        <section class="py-20 bg-white">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-center text-5xl title-font text-pink-600 mb-16">Những khoảnh khắc đẹp của Hải Hà 📸</h2>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8" id="gallery">
+                    <!-- Images will be injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL MESSAGE -->
+        <div class="bg-gradient-to-b from-pink-400 to-pink-600 py-24 text-white text-center">
+            <div class="max-w-xl mx-auto px-6">
+                <p class="text-3xl leading-relaxed title-font">
+                    Cô nương xem có thể giúp anh nâng cấp từ
+                </p>
+                <p class="text-3xl leading-relaxed title-font">
+                    Bạn Online thành Bạn Read Life được không :>
+                </p>
+                <div class="mt-16 text-6xl">💕</div>
+            </div>
+        </div>
     </div>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-    <!-- Third party plugin JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
-</body>
 
+    <!-- IMAGE MODAL -->
+    <div id="imageModal" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center">
+        <div class="relative max-w-3xl w-full mx-4">
+            <button onclick="closeModal()" 
+                    class="absolute -top-12 right-0 text-white text-4xl hover:text-pink-300">
+                ✕
+            </button>
+            <img id="modalImage" src="" class="w-full rounded-3xl shadow-2xl" alt="Memory">
+        </div>
+    </div>
+
+    <!-- Audio -->
+    <audio id="birthdayMusic" loop>
+    <!-- <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg"> -->
+        <source src="https://rr4---sn-8pxuuxa-i5okr.googlevideo.com/videoplayback?expire=1783368778&ei=6rdLaozqN7Sv9fwPl57m-QU&ip=112.120.48.126&id=o-AE0WtdBzxB525NeNoJ11oaJ1KiEDzjx-zMzYda9gH8VB&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&rms=au%2Cau&bui=ARmQxEVXyUxS7vIjjBQX5_ZU_KxX1Zt8jc25E99ZJjEQ4-A2E-OkpJq1aMZAg1HKSHSyD55L9B-e5MXr&spc=SQ-umnqQkdDFa8bvOLFz98lgcWT2L_azoheMhEj_yscm&vprv=1&svpuc=1&mime=audio%2Fwebm&rqh=1&gir=yes&clen=4009626&dur=238.921&lmt=1733209405567819&keepalive=yes&fexp=51565116&c=ANDROID_VR&txp=4532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AHEqNM4wRgIhAPrJKH2Xlmbhgb5i9W76dMDRqt3nRPLapr_F6Vr56WfLAiEAr1kUKN1iNUixNk-IW6Cd5BpVtwJIahYvY9ca5NCLljo%3D&redirect_counter=1&rm=sn-i3bde76&rrc=104&req_id=937bbc3a745ba3ee&cms_redirect=yes&cmsv=e&cps=162&ipbypass=yes&met=1783347221,&mh=RU&mip=2402:800:6173:1c53:f118:10d0:8272:678e&mm=31&mn=sn-8pxuuxa-i5okr&ms=au&mt=1783346542&mv=m&mvi=4&pl=50&lsparams=cps,ipbypass,met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&lsig=APaTxxMwRAIgVDly6eomSkqThzqV9rirDS5xA1WxEHbC30yfTJR14ZACIEOuVFT0vPPY87aVQ-FjjzgzVDD588MfdZ74RbsDS9wO" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Tailwind script already loaded via CDN
+        
+        // Sample images - REPLACE THESE WITH YOUR REAL PHOTOS
+        const photos = [
+            "https://scontent.fsgn5-22.fna.fbcdn.net/v/t39.30808-6/495178635_2060157017800168_5611451681023445209_n.jpg?stp=dst-jpg_tt6&cstp=mx1520x2048&ctp=s1520x2048&_nc_cat=110&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeF-MAbIRRhkP7TzriLm5CN4aDqm1dNjM4ZoOqbV02Mzhi-glXP0VNSkKxtyzGWrvNt0_4kzbtuewL_2pedbP0xv&_nc_ohc=MYDxVwGhN7AQ7kNvwGq7lTp&_nc_oc=AdogEmtDieJZ-o7nHXJJtrEpDYD-vNyvXkwrjN9_RzZeHchGPFBfBy5umOk4mj55SsrbfXhV9QkRzz4lN1WqlZaN&_nc_zt=23&_nc_ht=scontent.fsgn5-22.fna&_nc_gid=aMfv8LuAZ-xkM90rbvieWw&_nc_ss=7b2a8&oh=00_AQDZyszHu9Hrr2o8G2HhLlyiDUdzJkK4T15whVyEHYOKyw&oe=6A51A664",
+            "https://scontent.fsgn5-3.fna.fbcdn.net/v/t39.30808-6/490651207_2044549839360886_407719564462142884_n.jpg?stp=dst-jpg_tt6&cstp=mx1366x2048&ctp=s1366x2048&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHCWKCJw7D3P22BjZPWbKff2fCRc2Aylu_Z8JFzYDKW70pzfAp5R_CU4v6XHn_fRhpvzKEcxMoYgqXQLzhviPCk&_nc_ohc=E5jaRNmMzaYQ7kNvwFJ2Mar&_nc_oc=Ado6KbFkQfXYmgbJ25pEwIHOeOE13pmIl5reTZcrpXbs0Qj8XN20WeAln6ME8KD-ARhDCiJ8mUq9UdlRmsPejRnv&_nc_zt=23&_nc_ht=scontent.fsgn5-3.fna&_nc_gid=RSi7_cYNstQzCzFN6hRjNg&_nc_ss=7b2a8&oh=00_AQBUij-4ckh47EaIIJ5agydGlrGcTTOudcACTv1MDOa1vQ&oe=6A5187C1",
+            "https://p16-common-sign.tiktokcdn-us.com/tos-alisg-i-photomode-sg/4b8d3be78d4843529a29026dc6664099~tplv-photomode-image.jpeg?dr=9616&x-expires=1783522800&x-signature=UgStEmIVs7T5ZKUdXLWG3ixJEdg%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=9b759fb9&idc=useast8&ftpl=1",
+            "https://scontent.fsgn5-9.fna.fbcdn.net/v/t39.30808-6/539816673_2153255508490318_4209707837524246765_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1364&ctp=s2048x1364&_nc_cat=101&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFHxWctvDrHA8PJynwxrtyQMzTGp38cZf4zNManfxxl_q4LXVKMXeIs5rV_CqVRgVdj9k1yTvSF0xRvX55MHVYX&_nc_ohc=gFAlwjjA6GYQ7kNvwHl1yFl&_nc_oc=AdoNorzN5RGN5Ylartj_fARp_qbrk-NzGpKnsX8qfTtcNbrJMncRH1OGkWjMB_zhs0rZJTPcwFYvNf1Lw4GjDy5i&_nc_zt=23&_nc_ht=scontent.fsgn5-9.fna&_nc_gid=YCLmpSOl0zeyQJGVN_6ozw&_nc_ss=7b2a8&oh=00_AQAIpmZ0Sa6h11Kkja1Iqw_uyH_1oGJbppzkp78dR1DE7w&oe=6A51953E",
+            "https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/741613598_1047517827629867_1811485232164415924_n.jpg?stp=dst-jpg_tt6&cstp=mx1086x1448&ctp=s1086x1448&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=127cfc&_nc_ohc=rgUxXvFnV6IQ7kNvwFVIzfH&_nc_oc=Adr_ntwhpE8PsjgiW6wTh9Ew2bUD5au4NBWenAIIeE9L8IOnNfSkG4bKrYxdm1CoBF5i8Vp1pxZ-e27lUugexUjz&_nc_zt=23&_nc_ht=scontent.fsgn5-11.fna&_nc_gid=PMJ64kayENZAx2bL1G7pWQ&_nc_ss=7b2a8&oh=00_AQDbuRcjMcb_33S_eGPLKSz-VGTxj_jO3jfcB5anVFhiIw&oe=6A51AD4C",
+            "https://scontent.fsgn5-1.fna.fbcdn.net/v/t39.30808-6/649842175_2320138525135348_1508428518762360206_n.jpg?stp=dst-jpg_tt6&cstp=mx1464x2048&ctp=s1464x2048&_nc_cat=101&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFNNp1yQq0ul-WzDL4L97fjJTi-LcNoT4QlOL4tw2hPhEKZfLZYuxEAfWm0a7nC9vP4esqD5eaukkAnnMmxWdOn&_nc_ohc=7mhTrzfQ20AQ7kNvwFG1fnr&_nc_oc=AdqLdjNdN_Chb--jVWRJ7RZvQ_nCNtHamUY6HpnX_XgCo3zujj_ujeEknsQ0Qzh1vz8Q3j6GRer4neP6V7yom_LX&_nc_zt=23&_nc_ht=scontent.fsgn5-1.fna&_nc_gid=Wm0CzlerYwpLZnWFSd7BpQ&_nc_ss=7b2a8&oh=00_AQBYWDl5GVRnL8KHQzKnfB6ga5XquAci9DO5UIxRwpackA&oe=6A517607"
+        ];
+
+        let musicPlaying = false;
+        const audio = document.getElementById('birthdayMusic');
+
+        function toggleMusic() {
+            if (musicPlaying) {
+                audio.pause();
+                document.getElementById('musicBtn').innerHTML = `<i class="fa-solid fa-music"></i>`;
+            } else {
+                audio.play();
+                document.getElementById('musicBtn').innerHTML = `<i class="fa-solid fa-pause"></i>`;
+            }
+            musicPlaying = !musicPlaying;
+        }
+
+        // Create floating balloons
+        function createBalloons() {
+            const container = document.getElementById('balloons');
+            const emojis = ['🎈', '🪩', '💖', '🌸'];
+            
+            setInterval(() => {
+                const balloon = document.createElement('div');
+                balloon.className = 'balloon';
+                balloon.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                balloon.style.left = Math.random() * 100 + 'vw';
+                balloon.style.animationDuration = (Math.random() * 8 + 12) + 's';
+                balloon.style.opacity = Math.random() * 0.7 + 0.5;
+                container.appendChild(balloon);
+                
+                setTimeout(() => balloon.remove(), 25000);
+            }, 800);
+        }
+
+        // Create falling flowers
+        function createFlowers() {
+            const container = document.getElementById('flowers');
+            const flowers = ['🌸', '🌺', '🌷', '💐'];
+            
+            setInterval(() => {
+                const flower = document.createElement('div');
+                flower.className = 'flower';
+                flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+                flower.style.left = Math.random() * 100 + 'vw';
+                flower.style.animationDuration = (Math.random() * 5 + 6) + 's';
+                flower.style.fontSize = (Math.random() * 1.2 + 1.2) + 'rem';
+                container.appendChild(flower);
+                
+                setTimeout(() => flower.remove(), 15000);
+            }, 300);
+        }
+
+        // Simple Fireworks using Canvas
+        function launchFireworks() {
+            const canvas = document.getElementById('fireworks');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            let particles = [];
+            
+            class Particle {
+                constructor(x, y, color) {
+                    this.x = x;
+                    this.y = y;
+                    this.color = color;
+                    this.size = Math.random() * 6 + 2;
+                    this.speedX = Math.random() * 8 - 4;
+                    this.speedY = Math.random() * 8 - 6;
+                    this.gravity = 0.08;
+                    this.life = 80;
+                }
+                
+                update() {
+                    this.speedY += this.gravity;
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    this.life--;
+                }
+                
+                draw() {
+                    ctx.save();
+                    ctx.globalAlpha = this.life / 80;
+                    ctx.fillStyle = this.color;
+                    ctx.fillRect(this.x, this.y, this.size, this.size);
+                    ctx.restore();
+                }
+            }
+            
+            function explode(x, y) {
+                const colors = ['#ff1493', '#ff69b4', '#ffd700', '#ffffff', '#00ffff'];
+                for (let i = 0; i < 60; i++) {
+                    particles.push(new Particle(x, y, colors[Math.floor(Math.random()*colors.length)]));
+                }
+            }
+            
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    particles[i].update();
+                    particles[i].draw();
+                    if (particles[i].life <= 0) particles.splice(i, 1);
+                }
+                
+                if (Math.random() < 0.1) {
+                    explode(Math.random() * canvas.width, Math.random() * canvas.height * 0.6);
+                }
+                
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+            
+            // Initial explosions
+            setTimeout(() => explode(canvas.width/3, canvas.height/3), 300);
+            setTimeout(() => explode(canvas.width*0.7, canvas.height/4), 800);
+        }
+
+        // Open Gift
+        function openGift() {
+            const gift = document.getElementById('giftContainer');
+            const lid = document.getElementById('lid');
+            
+            // Shake more intensely
+            gift.style.animation = 'shake 0.2s infinite alternate';
+            
+            setTimeout(() => {
+                // Open lid
+                lid.style.transform = 'translateY(-80px) rotate(-25deg)';
+                
+                // Confetti explosion
+                createConfettiBurst();
+                
+                // Show Happy Birthday
+                setTimeout(() => {
+                    document.getElementById('landing').classList.add('hidden');
+                    document.getElementById('mainContent').classList.remove('hidden');
+                    document.getElementById('mainContent').scrollIntoView({ behavior: "smooth" });
+                    
+                    // Launch more fireworks
+                    launchFireworks();
+                }, 800);
+            }, 1200);
+        }
+
+        function createConfettiBurst() {
+            const container = document.getElementById('confettiContainer');
+            const colors = ['#ff1493', '#ff69b4', '#ffd700', '#00ffcc', '#ffffff'];
+            
+            for (let i = 0; i < 120; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = (Math.random() * 3 + 2.5) + 's';
+                confetti.style.animationDelay = Math.random() * 0.6 + 's';
+                confetti.style.width = Math.random() * 12 + 6 + 'px';
+                confetti.style.height = confetti.style.width;
+                container.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 6000);
+            }
+        }
+
+        // Typewriter effect
+        function typewriterEffect() {
+            const text = `Chúc em có một tuổi mới luôn vui vẻ, mạnh khỏe và gặp thật nhiều may mắn. Mong mọi dự định của mầy đều suôn sẻ, luôn giữ được nụ cười trên môi và mỗi ngày đều là một ngày thật ý nghĩa.`;
+            const element = document.getElementById('messageText');
+            let i = 0;
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, 45);
+                }
+            }
+            
+            type();
+        }
+
+        // Countdown (example: next birthday)
+        function startCountdown() {
+            // Giả sử sinh nhật là ngày 15/07
+            const birthday = new Date(new Date().getFullYear(), 6, 15); // July 15th
+            
+            if (birthday < new Date()) {
+                birthday.setFullYear(birthday.getFullYear() + 1);
+            }
+            
+            const interval = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = birthday - now;
+                
+                if (distance < 0) {
+                    clearInterval(interval);
+                    return;
+                }
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            }, 1000);
+        }
+
+        // Gallery
+        function createGallery() {
+            const gallery = document.getElementById('gallery');
+            
+            photos.forEach((src, index) => {
+                const div = document.createElement('div');
+                div.className = `polaroid cursor-pointer ${index % 2 === 0 ? '-rotate-3' : 'rotate-3'}`;
+                div.innerHTML = `
+                    <img src="${src}" class="w-full h-64 object-cover" alt="Kỷ niệm ${index+1}">
+                    <div class="text-center text-pink-400 mt-3 text-sm">Kỷ niệm ${index+1}</div>
+                `;
+                div.onclick = () => showImage(src);
+                gallery.appendChild(div);
+            });
+        }
+
+        function showImage(src) {
+            document.getElementById('modalImage').src = src;
+            document.getElementById('imageModal').classList.remove('hidden');
+            document.getElementById('imageModal').classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Keyboard ESC support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") {
+                const modal = document.getElementById('imageModal');
+                if (!modal.classList.contains('hidden')) closeModal();
+            }
+        });
+
+        // Initialize everything
+        window.onload = function() {
+            createBalloons();
+            createFlowers();
+            launchFireworks();
+            typewriterEffect();
+            startCountdown();
+            createGallery();
+            
+            // Auto play music (muted first - user must interact)
+            audio.volume = 0.6;
+            
+            // Make sure main content is scrollable
+            console.log('%c🎉 Happy Birthday Page loaded successfully!', 'color: #ff1493; font-size: 16px; font-family: Dancing Script');
+        };
+
+        // Responsive canvas resize
+        window.addEventListener('resize', () => {
+            const canvas = document.getElementById('fireworks');
+            if (canvas) {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+        });
+    </script>
+</body>
 </html>
